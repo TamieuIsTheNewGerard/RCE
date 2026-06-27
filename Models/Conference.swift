@@ -16,8 +16,8 @@ final class Conference {
     var date: Date
     var startTime: Date
     var endTime: Date
-    @Attribute(.defaultValue = false) var isSelected: Bool
-    @Attribute(.defaultValue = Priority.nonSelectionnee) var priority: Priority
+    var isSelected: Bool
+    var priority: Priority
 
     /// Relationship: A conference belongs to one room.
     @Relationship var room: Room
@@ -36,13 +36,17 @@ final class Conference {
         endTime: Date,
         room: Room,
         speakers: [Speaker],
-        theme: Theme
+        theme: Theme,
+        isSelected: Bool = false,
+        priority: Priority = .nonSelectionnee
     ) {
         self.title = title
         self.summary = summary
         self.date = date
         self.startTime = startTime
         self.endTime = endTime
+        self.isSelected = isSelected
+        self.priority = priority
         self.room = room
         self.speakers = speakers
         self.theme = theme
