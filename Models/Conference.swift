@@ -16,8 +16,8 @@ final class Conference {
     var date: Date
     var startTime: Date
     var endTime: Date
-    var isSelected: Bool = false
-    var priority: Priority = .nonSelectionnee
+    @Attribute(.defaultValue = false) var isSelected: Bool
+    @Attribute(.defaultValue = .nonSelectionnee) var priority: Priority
 
     /// Relationship: A conference belongs to one room.
     @Relationship var room: Room
