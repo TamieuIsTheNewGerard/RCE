@@ -25,7 +25,7 @@ final class Theme {
 }
 
 /// A wrapper to store `Color` in SwiftData.
-struct CodableColor: Codable {
+struct CodableColor: Codable, Hashable {
     let color: Color
 
     init(_ color: Color) {

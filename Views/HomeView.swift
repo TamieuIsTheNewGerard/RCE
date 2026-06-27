@@ -12,8 +12,12 @@ import SwiftData
 struct HomeView: View {
     @Environment(\ModelContext) private var modelContext
 
-    @Query(filter: #Predicate<Conference> { $0.isSelected }) private var selectedConferences: [Conference]
     @State private var selectedDayIndex: Int = DateUtils.currentEventDateIndex()
+
+    private var selectedConferences: [Conference] {
+        let descriptor = FetchDescriptor<Conference>(filter: #Predicate<Conference> { $0.isSelected })
+        return (try? modelContext.fetch(descriptor)) ?? []
+    }
 
     private let eventDates = Constantes.Defaults.eventDates
 

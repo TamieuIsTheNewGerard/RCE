@@ -12,10 +12,14 @@ import SwiftData
 struct MesConferencesView: View {
     @Environment(\ModelContext) private var modelContext
 
-    @Query private var conferences: [Conference]
     @State private var searchText = ""
     @State private var sortCriteria: SortCriteria = .day
     @State private var selectedConference: Conference?
+
+    private var conferences: [Conference] {
+        let descriptor = FetchDescriptor<Conference>()
+        return (try? modelContext.fetch(descriptor)) ?? []
+    }
 
     enum SortCriteria: String, CaseIterable {
         case day = "Jour"

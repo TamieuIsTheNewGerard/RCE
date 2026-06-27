@@ -12,13 +12,24 @@ import SwiftData
 struct ConferenceView: View {
     @Environment(\ModelContext) private var modelContext
 
-    @Query(sort: \Conference.date) private var conferences: [Conference]
-    @Query private var rooms: [Room]
-    @Query private var themes: [Theme]
-
     @State private var searchText = ""
     @State private var sortCriteria: SortCriteria = .day
     @State private var selectedConference: Conference?
+
+    private var conferences: [Conference] {
+        let descriptor = FetchDescriptor<Conference>(sortBy: [SortDescriptor(\Conference.date)])
+        return (try? modelContext.fetch(descriptor)) ?? []
+    }
+
+    private var rooms: [Room] {
+        let descriptor = FetchDescriptor<Room>()
+        return (try? modelContext.fetch(descriptor)) ?? []
+    }
+
+    private var themes: [Theme] {
+        let descriptor = FetchDescriptor<Theme>()
+        return (try? modelContext.fetch(descriptor)) ?? []
+    }
 
     enum SortCriteria: String, CaseIterable {
         case day = "Jour"
