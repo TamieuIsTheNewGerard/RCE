@@ -12,7 +12,7 @@ import SwiftData
 struct ConferenceView: View {
     @Environment(\ModelContext) private var modelContext
 
-    @Query private var conferences: [Conference]
+    @Query(sort: \Conference.date) private var conferences: [Conference]
     @Query private var rooms: [Room]
     @Query private var themes: [Theme]
 
