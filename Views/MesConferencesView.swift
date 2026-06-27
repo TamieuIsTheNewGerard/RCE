@@ -200,6 +200,6 @@ struct MesConferencesView: View {
     container.mainContext.insert(conference1)
     container.mainContext.insert(conference2)
 
-    return MesConferencesView()
+    MesConferencesView()
         .modelContainer(container)
 }

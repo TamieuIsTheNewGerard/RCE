@@ -214,6 +214,6 @@ struct SearchBar: View {
     container.mainContext.insert(conference2)
     container.mainContext.insert(conference3)
 
-    return ConferenceView()
+    ConferenceView()
         .modelContainer(container)
 }

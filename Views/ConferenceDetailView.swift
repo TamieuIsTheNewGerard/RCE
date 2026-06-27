@@ -207,6 +207,6 @@ struct ConferenceDetailView: View {
     container.mainContext.insert(speaker)
     container.mainContext.insert(conference)
 
-    return ConferenceDetailView(conference: conference)
+    ConferenceDetailView(conference: conference)
         .modelContainer(container)
 }

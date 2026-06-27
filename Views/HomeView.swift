@@ -193,6 +193,6 @@ struct HomeView: View {
     container.mainContext.insert(conference1)
     container.mainContext.insert(conference2)
 
-    return HomeView()
+    HomeView()
         .modelContainer(container)
 }

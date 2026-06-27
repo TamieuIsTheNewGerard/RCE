@@ -154,7 +154,7 @@ struct ConferenceRow: View {
         theme: theme
     )
 
-    return ConferenceRow(
+    ConferenceRow(
         conference: conference,
         showChevron: true,
         showConflictIndicator: true,

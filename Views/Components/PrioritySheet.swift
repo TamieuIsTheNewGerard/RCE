@@ -80,6 +80,6 @@ struct PrioritySheet: View {
         theme: theme
     )
 
-    return PrioritySheet(conference: conference, isPresented: $isPresented)
+    PrioritySheet(conference: conference, isPresented: $isPresented)
         .modelContainer(container)
 }
